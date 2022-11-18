@@ -23,6 +23,17 @@ def many_jokes():
     return render_template('many-jokes.html', jokes=ten_jokes)
 
 
+@app.route("/definition")
+def my_definitions():
+    # Right now, we are just returning the plain dictionary
+    # Look at the jokes example we did earlier if you want to experiment with reformatting the data!
+    # Read the Oxford Dictionary API documentation for more information on how to use the API!
+    a_definition: dict[str, str] = get_a_def()
+
+    # the dictionary returned from this API call is a lot more complicated than previous examples we've shown, notice the keys and indicing below
+    return render_template('definition.html', word=a_definition['id'], definition=a_definition['results'][0]['lexicalEntries'][0]['entries'][0]['senses'][0]['definitions'][0])
+
+
 # API CALLS
 
 @app.route("/api/joke")
@@ -61,27 +72,18 @@ def get_10_jokes() -> list[dict[str, str]]:
 def get_a_def() -> dict[str, str]:
     # Below lines of code are all from the API documentation: https://developer.oxforddictionaries.com/documentation/getting_started
     # Follow along with the documentation and create an account to generate a unique app id and key
-    app_id = "Replace with your id"
-    app_key = "<Replace with your key>"
+    app_id = "<insert your id here>"
+    app_key = "<insert your key here>"
 
     language = "en-gb"  # sets language to English
 
-    word_id = "example"  # change this variable to see different word definitions
+    word_id = "hackathon"  # change this variable to see different word definitions
 
     url = "https://od-api.oxforddictionaries.com:443/api/v2/entries/" + \
         language + "/" + word_id.lower()
     data = requests.get(url, headers={"app_id": app_id, "app_key": app_key})
     response = data.json()
     return response
-
-
-@app.route("/definition")
-def my_definitions():
-    # Right now, we are just returning the plain dictionary
-    # Look at the jokes example we did earlier if you want to experiment with reformatting the data!
-    # Read the Oxford Dictionary API documentation for more information on how to use the API!
-    a_definition: dict[str, str] = get_a_def()
-    return render_template('definition.html', word=a_definition["word"])
 
 
 if __name__ == '__main__':
