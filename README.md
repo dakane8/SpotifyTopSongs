@@ -1,6 +1,6 @@
-# Hack110 Fall 2022 API Workshop
+# Hack110 Spring 2023 API Workshop
 
-## What are you APIs?
+## What are APIs?
 
 An API (Application Programming Interface) is a way to send data between computers, usually through the Internet through "requests" and "responses". A program sends a request to an API on the web, which fetches that data and sends it back to the program in a simple file format. APIs are very powerful and have many real-world applications.
 
