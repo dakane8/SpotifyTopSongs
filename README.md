@@ -8,7 +8,7 @@ An API (Application Programming Interface) is a way to send data between compute
 
 Open VSCode and click on **Clone Git Repository...**
 
-Then, paste `git clone https://github.com/meghansun322/api-workshop-demo.git`
+Then, paste `git clone https://github.com/VitorInserra/apiworkshop`
 
 <img width="338" alt="Screen Shot 2022-11-16 at 4 00 40 PM" src="https://user-images.githubusercontent.com/69722735/202293238-cdc8207a-2f84-451f-ad15-4c6100507669.png">
 
@@ -39,7 +39,7 @@ We will be using the Offical Joke API: https://github.com/15Dkatz/official_joke_
 
 **This is what the final product should look like:**
 
-<img width="500" src="https://github.com/meghansun322/api-workshop-demo/blob/jokes-tab/Screen%20Recording%202022-11-16%20at%204.07.50%20PM.gif" />
+<img width="500" src="https://github.com/VitorInserra/apiworkshop/blob/jokes-tab/Screen%20Recording%202022-11-16%20at%204.07.50%20PM.gif" />
 
 ## Finished Demo
 
