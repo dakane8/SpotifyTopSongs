@@ -34,6 +34,17 @@ def many_jokes():
     return render_template('many-jokes.html', jokes=ten_jokes)
 
 
+@app.route("/definition")
+def my_definitions():
+    # Right now, we are just returning the plain dictionary
+    # Look at the jokes example we did earlier if you want to experiment with reformatting the data!
+    # Read the Oxford Dictionary API documentation for more information on how to use the API!
+    a_definition: dict[str, str] = get_a_def()
+
+    # the dictionary returned from this API call is a lot more complicated than previous examples we've shown, notice the keys and indicing below
+    return render_template('definition.html', word=a_definition['id'], definition=a_definition['results'][0]['lexicalEntries'][0]['entries'][0]['senses'][0]['definitions'][0])
+
+
 # API CALLS
 
 @app.route("/api/joke")
@@ -100,11 +111,8 @@ def my_definitions():
     # Right now, we are just returning the plain dictionary
     # Look at the jokes example we did earlier if you want to experiment with reformatting the data!
     # Read the Oxford Dictionary API documentation for more information on how to use the API!
-
-    # Call get_a_def()
-    a_definition: dict[str, str] = ...
-    # the dictionary returned from this API call is a lot more complicated than previous examples we've shown, notice the keys and indicing below
-    return render_template('definition.html', word=a_definition['id'], definition=a_definition['results'][0]['lexicalEntries'][0]['entries'][0]['senses'][0]['definitions'][0])
+    a_definition: dict[str, str] = get_a_def()
+    return render_template('definition.html', word=a_definition["word"])
 
 
 if __name__ == '__main__':
