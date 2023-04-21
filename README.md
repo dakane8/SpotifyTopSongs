@@ -47,4 +47,4 @@ https://github.com/meghansun322/api-workshop-demo/tree/finished-demo
 
 ## Contributors
 
-Meghan Sun & Bailey DeSouza
+Vitor Inserra, Jessica Bring, Shefali Pai
