@@ -43,9 +43,8 @@
                     </ul>
                 </div>
             </nav>
-        <h1>Here are your top 10 most played songs of the month!</h1>
+        <h1>Here are the top 10 most played songs!</h1>
         <p>Thank you for logging in to our website using Spotify.</p>
-        <p>You can now access premium features and enjoy personalized recommendations.</p>
         {% for song in songs %} 
                 <h3>{{song['name']}}</h3>
         {% endfor %}

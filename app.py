@@ -189,7 +189,7 @@ def get_song_by_artist(token, artist_id):
 
 
 token = get_token()
-result = search_for_artist(token, "100 gecs")
+result = search_for_artist(token, "the weeknd")
 artist_id = result["id"]
 songs = get_song_by_artist(token, artist_id)
 

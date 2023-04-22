@@ -1,55 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Intro to Web Dev!</title>
-        <link rel="stylesheet" href="/static/bootstrap.min.css">
-        <link rel="stylesheet" href="/static/styles.css">
-    </head>
-    <body>
-        <h1>Top 10 Spotify Tracks of ACDC</h1>
-            <ul>
-            {% for track in top_tracks %}
-                <li>{{ track }}</li>
-            {% endfor %}
-            </ul>
-        <!-- navigation bar -->
-    <nav class="navbar navbar-expand">
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="/"><img class="logo" src="/static/logo.png" alt="logo"></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/">home</a>
-                </li> 
-                <li class="nav-item">
-                    <a class="nav-link" href="/about">about</a>
-                </li> 
-            </ul>
-        </div>
-    </nav>
-    <button id="login-button" onclick="spotifyLogin(); location.href='/after_login';">Log in with Spotify</button>
-        
-    <script>
+   <head>
+       <meta charset="UTF-8">
+       <title>Intro to Web Dev!</title>
+       <link rel="stylesheet" href="/static/bootstrap.min.css">
+       <link rel="stylesheet" href="/static/styles.css">
+   </head>
+   <body>
+       <h1>Top 10 Spotify Tracks of Your Favorite Artist</h1>
+           <ul>
+           {% for track in top_tracks %}
+               <li>{{ track }}</li>
+           {% endfor %}
+           </ul>
+       <!-- navigation bar -->
+   <nav class="navbar navbar-expand">
+       <div class="collapse navbar-collapse">
+           <ul class="navbar-nav">
+               <li class="nav-item">
+                   <a href="/"><img class="logo" src="/static/logo.png" alt="logo"></a>
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" href="/">home</a>
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" href="/about">about</a>
+               </li>
+           </ul>
+       </div>
+   </nav>
 
-    function spotifyLogin() {
-      var clientId = 'e5b9e5a6fffc46e48d2eaa469a525139';
-      var redirectUri = 'http://127.0.0.1:5000';
-      var scope = 'user-read-private user-read-email';
-      var state = 'some-state-value';
-      var authorizeUrl = 'https://accounts.spotify.com/authorize';
-      var queryParams = [
-        'response_type=code',
-        'client_id=' + encodeURIComponent(clientId),
-        'redirect_uri=' + encodeURIComponent(redirectUri),
-        'scope=' + encodeURIComponent(scope),
-        'state=' + encodeURIComponent(state)
-      ];
-      var url = authorizeUrl + '?' + queryParams.join('&');
-      window.location.href = url;
-    }
-    </script>
-    
-    </body>
+    <input type="artist" name="artist" placeholder="Enter an artist">
+    <button id="login-button" onclick="spotifyLogin(); location.href='/after_login';">Continue</button>
+      
+   <script>
+
+
+   function spotifyLogin() {
+     var clientId = 'e5b9e5a6fffc46e48d2eaa469a525139';
+     var redirectUri = 'http://127.0.0.1:5000';
+     var scope = 'user-read-private user-read-email';
+     var state = 'some-state-value';
+     var authorizeUrl = 'https://accounts.spotify.com/authorize';
+     var queryParams = [
+       'response_type=code',
+       'client_id=' + encodeURIComponent(clientId),
+       'redirect_uri=' + encodeURIComponent(redirectUri),
+       'scope=' + encodeURIComponent(scope),
+       'state=' + encodeURIComponent(state)
+     ];
+     var url = authorizeUrl + '?' + queryParams.join('&');
+     window.location.href = url;
+   }
+   </script>
+  
+   </body>
 </html>
+
