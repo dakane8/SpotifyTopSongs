@@ -43,7 +43,7 @@ We will be using the Offical Joke API: https://github.com/15Dkatz/official_joke_
 
 ## Finished Demo
 
-https://github.com/VitorInserra/apiworkshop/tree/finished-demo
+https://github.com/VitorInserra/apiworkshop-complete-demo.git
 
 ## Contributors
 
