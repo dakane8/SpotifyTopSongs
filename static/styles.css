@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:100");
 
 /** ---------------------- GENERAL ---------------------- **/
 
@@ -7,11 +8,109 @@ html {
 }
 
 body {
-  background: linear-gradient(to bottom right, #e6e3e3, #e0e0e0);
-  color: #555555;
+  background: linear-gradient(0deg, #8d8eb5 1%, #000000);
+  color: #5f9a73f8;
   font-size: 1em;
-  font-family: "Quicksand";
+  font-family: "sans-serif";
   background-attachment: fixed;
+}
+
+input {
+  background-color: rgb(86, 75, 75);
+  color: white;
+  border: none;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute;
+  left: 575px;
+  top: 300px;
+}
+
+#login-button {
+  background-color: #564a4a37;
+  border: 10px solid #2c2f2d;
+  border-radius: 7rem;
+  color: #b4bab5;
+  font-family: Helvetica, sans-serif;
+  font-size: 4rem;
+  font-weight: 1000;
+  overflow: hidden;
+  padding: 1rem 2rem;
+  position: relative;
+  top: 200px;
+  left: 450px;
+  text-decoration: none;
+  transition: 0.2s transform ease-in-out;
+  will-change: transform;
+  z-index: 0;
+}
+#login-button::after {
+  background-color: #1db954b0;
+  border-radius: 7rem;
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-100%, 0) rotate(10deg);
+  transform-origin: top left;
+  transition: 0.2s transform ease-out;
+  will-change: transform;
+  z-index: -1;
+}
+#login-button:hover::after {
+  transform: translate(0, 0);
+}
+#login-button:hover {
+  border: 10px solid transparent;
+  color: #000000;
+  transform: scale(1.05);
+  will-change: transform;
+}
+
+#logout-button {
+  background-color: #564a4a37;
+  border: 2px solid #2c2f2d;
+  border-radius: 7rem;
+  color: #b4bab5;
+  font-family: Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 1000;
+  overflow: hidden;
+  padding: 1rem 2rem;
+  position: relative;
+  text-decoration: none;
+  transition: 0.2s transform ease-in-out;
+  will-change: transform;
+  z-index: 0;
+}
+#logout-button::after {
+  background-color: #1db954b0;
+  border-radius: 7rem;
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-100%, 0) rotate(10deg);
+  transform-origin: top left;
+  transition: 0.2s transform ease-out;
+  will-change: transform;
+  z-index: -1;
+}
+#logout-button:hover::after {
+  transform: translate(0, 0);
+}
+#logout-button:hover {
+  border: 2px solid transparent;
+  color: #000000;
+  transform: scale(1.05);
+  will-change: transform;
 }
 
 .container {
@@ -22,18 +121,8 @@ body {
 
 .navbar {
   z-index: 1;
-  background: #f5f5f5;
-  border-image: linear-gradient(
-    to right,
-    #fe9f9f,
-    #fec79f,
-    #fadf94,
-    #befe9f,
-    #9ffec5,
-    #9fedfe,
-    #cfa3df,
-    #fe9fe9
-  );
+  background: #00000000;
+  border-image: #000000;
   border-left: 0px;
   border-right: 0px;
   border-top: 0px;
@@ -57,22 +146,35 @@ body {
 }
 
 .nav-link {
-  font-family: "Quicksand";
+  font-family: "Gotham";
   font-size: 2.25vw;
   font-weight: bold;
-  color: #727272;
+  color: #ffffff;
+  position: relative;
   text-shadow: 0px 0px 0px #e6e6e6;
   letter-spacing: 0.15em;
   margin-top: 0.5em;
 }
 
 .nav-link:hover {
-  color: #aaaaaa;
+  border: 2px solid transparent;
+  color: #1db954;
+  transform: scale(1.05);
+  will-change: transform;
 }
 
 img.logo {
-  max-height: 7vw;
+  background-color: transparent;
+  max-height: 6vw;
 }
+img.logo:hover {
+  border: 2px solid transparent;
+  color: #1db954;
+  transform: scale(1.15);
+  will-change: transform;
+}
+
+
 
 .todo {
   padding: 10px;

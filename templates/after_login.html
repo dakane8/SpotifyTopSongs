@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<title>Logged In</title>
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/styles.css">
+    </head>
+    <script>
+		function logout() {
+            const hash = window.location.hash.substring(1).split('&').reduce(function (initial, item) {
+            if (item) {
+                var parts = item.split('=');
+                initial[parts[0]] = decodeURIComponent(parts[1]);
+            }
+            return initial;
+            }, {});
+
+            window.location.hash = '';
+
+            // Set token    
+			var access_token = hash.access_token;
+            var logout_url = "https://accounts.spotify.com/logout";
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', logout_url);
+            xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
+            xhr.send();
+		}
+	</script>
+    <body>
+            <!-- navigation bar -->
+            <nav class="navbar navbar-expand">
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="/"><img class="logo" src="/static/logo.png" alt="logo"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">home</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">about</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        <h1>Here are your top 10 most played songs of the month!</h1>
+        <p>Thank you for logging in to our website using Spotify.</p>
+        <p>You can now access premium features and enjoy personalized recommendations.</p>
+        {% for song in songs %} 
+                <h3>{{song['name']}}</h3>
+        {% endfor %}
+        <button id="logout-button" onclick="logout()">Log out of Spotify</button>
+
+    </body>
+</html>

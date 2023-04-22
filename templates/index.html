@@ -7,6 +7,12 @@
         <link rel="stylesheet" href="/static/styles.css">
     </head>
     <body>
+        <h1>Top 10 Spotify Tracks of ACDC</h1>
+            <ul>
+            {% for track in top_tracks %}
+                <li>{{ track }}</li>
+            {% endfor %}
+            </ul>
         <!-- navigation bar -->
     <nav class="navbar navbar-expand">
         <div class="collapse navbar-collapse">
@@ -18,21 +24,32 @@
                     <a class="nav-link" href="/">home</a>
                 </li> 
                 <li class="nav-item">
-                    <a class="nav-link" href="/joke">joke</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/many-jokes">many jokes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/mars">mars pictures</a>
-                </li>
+                    <a class="nav-link" href="/about">about</a>
+                </li> 
             </ul>
         </div>
     </nav>
-        <div class="container">
-            <h2>API WORKSHOP!</h2>
-           <p>Github: <a href="https://github.com/meghansun322/api-workshop-demo">https://github.com/meghansun322/api-workshop-demo</a></p>
-           <p>Slides: <a href="https://docs.google.com/presentation/d/1n4J7Jqnf_EXt_C7HQ5yBkucZu9Lt6x9tEMWnZzb_Cr4/edit?usp=sharing">https://docs.google.com/presentation/d/1n4J7Jqnf_EXt_C7HQ5yBkucZu9Lt6x9tEMWnZzb_Cr4/edit?usp=sharing</a></p> 
-        </div>
+    <button id="login-button" onclick="spotifyLogin(); location.href='/after_login';">Log in with Spotify</button>
+        
+    <script>
+
+    function spotifyLogin() {
+      var clientId = 'e5b9e5a6fffc46e48d2eaa469a525139';
+      var redirectUri = 'http://127.0.0.1:5000';
+      var scope = 'user-read-private user-read-email';
+      var state = 'some-state-value';
+      var authorizeUrl = 'https://accounts.spotify.com/authorize';
+      var queryParams = [
+        'response_type=code',
+        'client_id=' + encodeURIComponent(clientId),
+        'redirect_uri=' + encodeURIComponent(redirectUri),
+        'scope=' + encodeURIComponent(scope),
+        'state=' + encodeURIComponent(state)
+      ];
+      var url = authorizeUrl + '?' + queryParams.join('&');
+      window.location.href = url;
+    }
+    </script>
+    
     </body>
 </html>
